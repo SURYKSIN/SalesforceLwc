@@ -1,0 +1,46 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_medium">
+            <lightning-input
+            type="number"
+            label="Input"
+            onchange={onchangeHandler}></lightning-input>
+        </div>
+        <template if:true={isAdd} >
+            <div class="slds-m-around_medium">Summary : {oldSummay} + {summary}</div>  
+        </template>
+        <template else if:true={isSub} >
+            <div class="slds-m-around_medium">Summary : {oldSummay} - {summary}</div>  
+        </template>
+        <template else if:true={isMul} >
+            <div class="slds-m-around_medium">Summary : {oldSummay} * {summary}</div>  
+        </template>
+        <template else if:true={isDiv} >
+            <div class="slds-m-around_medium">Summary : {oldSummay} / {summary}</div>  
+        </template>
+        <template else >
+            <div class="slds-m-around_medium">Summary : {oldSummay}</div>  
+        </template>
+        
+        <div class="slds-m-around_medium">
+            <lightning-button
+            name="ADD"
+            label="ADD"
+            variant="brand"
+            onclick={addHandler}></lightning-button>
+            <lightning-button
+            label="SUBSTRACT"
+            variant="brand"
+            onclick={subHandler}></lightning-button>
+            <lightning-button
+            label="MULTIPLY"
+            variant="brand"
+            onclick={mulHandler}></lightning-button>
+            <lightning-button
+            label="DIVIDE"
+            variant="brand"
+            onclick={divideHandler}></lightning-button>
+        </div>
+        <div>Result :{result}</div>
+    </lightning-card>
+</template>
